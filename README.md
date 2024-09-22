@@ -1,3 +1,6 @@
+[![Build and Release](https://github.com/Eslam3bed/react-onboardx/actions/workflows/build.yml/badge.svg)](https://github.com/Eslam3bed/react-onboardx/actions/workflows/build.yml)
+[![Publish](https://github.com/Eslam3bed/react-onboardx/actions/workflows/release.yml/badge.svg)](https://github.com/Eslam3bed/react-onboardx/actions/workflows/release.yml)
+
 # React Onboarding Tool Kit
 
 ## Overview
