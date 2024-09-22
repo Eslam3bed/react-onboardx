@@ -31,10 +31,10 @@ jobs:
 
     - name: Bump version and generate changelog
       run: |
-        npm run release
         git config --global user.name 'Eslam.Dev'
         git config --global user.email 'e.eslam3bed@gmail.com'
-        
+        npm run release
+
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
