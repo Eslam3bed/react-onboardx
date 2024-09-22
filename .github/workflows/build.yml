@@ -49,14 +49,14 @@ jobs:
           git add .
           git commit -m "chore(release): $(node -p -e "require('./package.json').version") [skip ci]"
           git tag v$(node -p -e "require('./package.json').version")
-          echo "version_bumped=true" >> $GITHUB_ENV
+          echo "version_bumped=true" >> $GITHUB_OUTPUT
         else
           echo "No changes to commit."
-          echo "version_bumped=false" >> $GITHUB_ENV
+         echo "version_bumped=false" >> $GITHUB_OUTPUT
         fi
 
     - name: Push changes to main branch
-      if: env.version_bumped == 'true'
+      if: ${{ steps.tag.outputs.version_bumped }} == 'true'
       run: |
          git checkout main
          git push origin main --follow-tags
