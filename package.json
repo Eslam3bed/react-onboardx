@@ -1,6 +1,6 @@
 {
   "name": "react-onboardx",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React Onboarding Tool Kit is a flexible, easy-to-use package for creating guided tours and onboarding experiences in React applications. It provides a headless approach, allowing you to maintain full control over your UI while leveraging powerful onboarding logic.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
