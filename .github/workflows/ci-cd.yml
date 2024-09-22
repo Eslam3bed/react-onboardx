@@ -51,10 +51,13 @@ jobs:
           git add .
           git commit -m "chore(release): $(node -p -e "require('./package.json').version") [skip ci]"
           git tag v$(node -p -e "require('./package.json').version")
+          echo "::set-output name=version_bumped::true" 
         else
           echo "No changes to commit."
+          echo "::set-output name=version_bumped::true" 
         fi
     - name: Push changes to main branch
+      if: steps.commit_version.outputs.version_bumped == 'true'
       run: git push --follow-tags
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -68,6 +71,7 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
+    if: needs.build.outputs.version_bumped == 'true'
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
