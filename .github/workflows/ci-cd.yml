@@ -40,12 +40,17 @@ jobs:
 
     - name: Commit changelog and version bump
       run: |
-        git config --global user.name 'Eslam3bed'
-        git config --global user.email 'e.eslam3bed@gmail.com'
-        git add .
-        git commit -m "chore(release): $(node -p -e "require('./package.json').version") [skip ci]"
-        git tag v$(node -p -e "require('./package.json').version")
-    
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        
+        # Check if there are any changes to commit
+        if ! git diff --quiet; then
+          git add .
+          git commit -m "chore(release): $(node -p -e "require('./package.json').version") [skip ci]"
+          git tag v$(node -p -e "require('./package.json').version")
+        else
+          echo "No changes to commit."
+        fi
     - name: Push changes to main branch
       run: git push --follow-tags
       env:
