@@ -79,6 +79,6 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: dist/*
-        tag: v$(node -p -e "require('./package.json').version")  # Use the new tag
+        tag_name: v$(node -p -e "require('./package.json').version")  # Use the new tag
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
