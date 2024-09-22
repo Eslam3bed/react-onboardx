@@ -56,7 +56,10 @@ jobs:
           echo "::set-output name=version_bumped::true" 
         fi
     - name: Push changes to main branch
-      run: git push --follow-tags
+      if: env.version_bumped == 'true'
+      run: |
+         git checkout main
+         git push origin main --follow-tags
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
