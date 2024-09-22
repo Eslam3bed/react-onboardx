@@ -1,0 +1,2 @@
+// @types/react.d.ts
+declare module 'react';
