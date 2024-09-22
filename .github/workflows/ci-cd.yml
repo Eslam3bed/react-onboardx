@@ -71,7 +71,6 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
-    if: needs.build.outputs.version_bumped == 'true'
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -80,5 +79,6 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: dist/*
+        tag: v$(node -p -e "require('./package.json').version")  # Use the new tag
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
