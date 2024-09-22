@@ -31,7 +31,7 @@ jobs:
 
     - name: Bump version and generate changelog
       run: |
-        git config --global user.name 'Eslam.Dev'
+        git config --global user.name 'Eslam3bed'
         git config --global user.email 'e.eslam3bed@gmail.com'
         npm run release
 
@@ -40,7 +40,7 @@ jobs:
 
     - name: Commit changelog and version bump
       run: |
-        git config --global user.name 'Eslam.Dev'
+        git config --global user.name 'Eslam3bed'
         git config --global user.email 'e.eslam3bed@gmail.com'
         git add .
         git commit -m "chore(release): $(node -p -e "require('./package.json').version") [skip ci]"
