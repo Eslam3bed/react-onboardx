@@ -37,4 +37,4 @@ jobs:
         files: dist/*
         tag_name: ${{ steps.tag.outputs.tag }}
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
